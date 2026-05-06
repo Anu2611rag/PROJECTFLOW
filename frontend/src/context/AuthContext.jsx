@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Setup axios default
-  axios.defaults.baseURL = 'http://localhost:5000/api';
+  axios.defaults.baseURL = import.meta.env.MODE === 'production' ? '/api' : 'http://localhost:5000/api';
 
   useEffect(() => {
     if (token) {
